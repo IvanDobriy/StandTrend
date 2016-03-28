@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QSerialPort>
+#include <QThread>
 
 namespace Ui {
 class MainWindow;
