@@ -4,28 +4,45 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    thread(new QThread),
-    stm(new Stm32VCP)
+
+    stm(new Stm32VCP),
+
+    portHandler(new SerialPortHandler)
+
+
 {
 
     ui->setupUi(this);
 
-
-    stm->moveToThread(thread);
-    connect(thread, SIGNAL(finished()),
-              stm, SLOT(deleteLater()));
+    //stm->setParent(this);
+    //stm->moveToThread(&thread);
+    portHandler->moveToThread(&thread2);
+   // connect(&thread, SIGNAL(finished()),
+  //            stm, SLOT(deleteLater()));
+    connect(&thread2, SIGNAL(finished()),
+            portHandler, SLOT(deleteLater()));
     connect(ui->openPortButton, SIGNAL(clicked(bool)),
-            stm, SLOT(test_slot()));
-    thread->start();
+            portHandler, SLOT(ReadData__Debug()));
+    //connect(portHandler, SIGNAL(isRunning()),
+      //      stm, SLOT(test_slot()));
+  //  thread.start();
+    thread2.start();
 
 }
 
 MainWindow::~MainWindow()
 {
-    if(thread->isRunning()){
-        thread->exit();
+    if(thread.isRunning()){
+        qDebug() << "Thread is exited";
+
+        thread.quit();
     }
-    delete thread;
-    delete stm;
+    if (thread2.isRunning()){
+
+        qDebug() << "Thread2 is exited";
+        thread2.quit();
+
+    }
+
     delete ui;
 }

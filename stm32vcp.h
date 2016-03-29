@@ -9,6 +9,7 @@ class Stm32VCP: public QObject
     Q_OBJECT
 public:
     Stm32VCP(QObject* par = 0);
+    ~Stm32VCP();
 public slots:
     void test_slot();
 };

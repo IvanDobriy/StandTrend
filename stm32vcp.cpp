@@ -7,4 +7,10 @@
 
 void Stm32VCP::test_slot(){
       qDebug() << "Test slot is launched";
+      while(1){
+
+      }
+}
+Stm32VCP::~Stm32VCP(){
+    qDebug() << "Stm is deleted";
 }

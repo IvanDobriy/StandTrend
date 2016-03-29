@@ -41,7 +41,6 @@ SerialPortHandler::SerialPortHandler(QObject *parent):
 }
 
 void SerialPortHandler::ReadData__Debug(){
-    qDebug() << " test is started";
     if(serialPort->isOpen()){
         emit isRunning();
         QByteArray buffer;
@@ -83,6 +82,7 @@ bool SerialPortHandler::SearchPort(quint16 vid, quint16 pid,
 }
 
 SerialPortHandler::~SerialPortHandler(){
+    qDebug() << "Port is deleted";
     if(serialPort->isOpen()){
         serialPort->close();
     }
