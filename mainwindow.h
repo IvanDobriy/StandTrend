@@ -20,6 +20,7 @@ public:
     ~MainWindow();
 
 private:
+    Stm32VCP* stm;
     QThread* thread;
     Ui::MainWindow *ui;
 };

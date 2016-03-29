@@ -1,10 +1,10 @@
 #include "stm32vcp.h"
 
- StmVCP::StmVCP(QObject* parent): QObject(parent){
-    qDebug() << "The object is initialized";
+ Stm32VCP::Stm32VCP(QObject* par): QObject(par){
+       qDebug() << "The object is initialized";
 
 }
 
-void StmVCP::test_slot(){
-    qDebug() << "Test slot is launched";
+void Stm32VCP::test_slot(){
+      qDebug() << "Test slot is launched";
 }

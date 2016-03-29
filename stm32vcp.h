@@ -4,13 +4,14 @@
 #include <QObject>
 #include <QDebug>
 
-class StmVCP: public QObject
+class Stm32VCP: public QObject
 {
     Q_OBJECT
 public:
-    StmVCP(QObject* parent = 0);
+    Stm32VCP(QObject* par = 0);
 public slots:
     void test_slot();
 };
+
 #endif // STM32VCP_H
 
