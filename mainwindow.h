@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QSerialPort>
 #include <QThread>
+#include "stm32vcp.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,6 +20,7 @@ public:
     ~MainWindow();
 
 private:
+    QThread* thread;
     Ui::MainWindow *ui;
 };
 

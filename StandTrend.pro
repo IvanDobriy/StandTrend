@@ -14,12 +14,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-          mainwindow.cpp
+                mainwindow.cpp \
+                    serialporthandler.cpp \
+    stm32vcp.cpp
 
 HEADERS  += mainwindow.h \
-    stm32vcp.h
+                     stm32vcp.h \
+                        serialporthandler.h
 
 FORMS    += mainwindow.ui
 
 DISTFILES += \
-    ReadMe.txt
+         ReadMe.txt
